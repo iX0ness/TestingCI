@@ -12,6 +12,7 @@ struct ContentView: View {
         HStack {
             Text("Hello, world!")
             Text("Hello, world!")
+            Text("Hello, world!")
         }
      
     }
