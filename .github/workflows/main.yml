@@ -37,5 +37,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Testing
-        run: xcodebuild test -project "TestingCI.xcodeproj" -scheme "TestingCI" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild test -project "TestingCI.xcodeproj" -scheme "TestingCI" -destination "generic/platform=iOS"
 
