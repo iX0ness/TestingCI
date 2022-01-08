@@ -37,5 +37,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Testing
-        run: xcodebuild test -project "TestingCI.xcodeproj" -scheme "TestingCI" -destination "generic/platform=iOS"
-
+        run: xcodebuild test -project 'TestingCI.xcodeproj' -scheme 'TestingCI' -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=15.2'
