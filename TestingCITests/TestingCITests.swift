@@ -9,7 +9,7 @@ import XCTest
 @testable import TestingCI
 
 class TestingCITests: XCTestCase {
-
+    
     func test_sut_ifNetworkRequestFailed_errorShouldBeEmitted() {
         let sut = makeSUT()
         let expectation = expectation(description: "Waiting for failure")
@@ -32,8 +32,30 @@ class TestingCITests: XCTestCase {
         XCTAssertEqual(results.count, 1)
     }
     
+    func test_sut_ifNetworkRequestSucceed_valueShouldBeEmitted() {
+        let sut = makeSUT()
+        let expectation = expectation(description: "Waiting for value")
+        
+        sut.result = .success(10)
+        var results: [Int] = []
+        
+        sut.performRequest { result in
+            switch result {
+            case .failure:
+                XCTFail()
+            case .success(let value):
+                results.append(value)
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 1.0)
+        
+        XCTAssertEqual(results.count, 1)
+    }
+    
     func makeSUT() -> APIClient {
         .init()
     }
-
+    
 }
